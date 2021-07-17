@@ -41,12 +41,12 @@ async def start_handler(bot: Client, event: Message):
         text=f"Hi, {event.from_user.mention}\n{Config.START_TEXT}",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("Developer", url="https://t.me/shreevish")
-                     InlineKeyboardButton("All Movie Rockers", url="https://t.me/All_Movie_Rockers")],
-                    [InlineKeyboardButton("Help", callback_data="help")
-                     InlineKeyboardButton("About", url="callback_data='about')],
-                    [InlineKeyboardButton("❎ Close ❎", callback_data="close")]
+                [[
+                    InlineKeyboardButton("Developer", url="https://t.me/shreevish")
+                    InlineKeyboardButton("All Movie Rockers", url="https://t.me/All_Movie_Rockers")],
+                   [InlineKeyboardButton("Help", callback_data="help")
+                    InlineKeyboardButton("About", callback_data='about')],
+                   [InlineKeyboardButton("❎ Close ❎", callback_data="close")]
                 ]
             )
         )
