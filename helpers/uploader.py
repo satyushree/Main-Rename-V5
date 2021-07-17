@@ -45,10 +45,10 @@ async def UploadFile(bot: Client, message: Message, file_path: str, file_size):
             caption=((Config.CAPTION.format((await bot.get_me()).username) + f"\n\n**File Name:** `{file_path.rsplit('/', 1)[-1]}`\n**File Size:** `{humanbytes(file_size)}`") if (caption_ is None) else caption_),
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")
-                     InlineKeyboardButton("Support Group", url="https://t.me/DevsZone")],
-                    [InlineKeyboardButton("Help", callback_data="help")
-                     InlineKeyboardButton("About", url="callback_data='about')],
+                    [InlineKeyboardButton("Developer", url="https://t.me/shreevish"),
+                     InlineKeyboardButton("Main Channel", url="https://t.me/All_Movie_Rockers")],
+                    [InlineKeyboardButton("Help", callback_data="help"),
+                     InlineKeyboardButton("About", callback_data='about')],
                     [InlineKeyboardButton("Close", callback_data="close")]
                 ]
             )
