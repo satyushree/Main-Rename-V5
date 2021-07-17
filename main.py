@@ -41,13 +41,15 @@ async def start_handler(bot: Client, event: Message):
         text=f"Hi, {event.from_user.mention}\n{Config.START_TEXT}",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("Support Group", url="https://t.me/DevsZone"),
-                 InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")],
-                [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")]
-            ]
+                [
+                    [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")
+                     InlineKeyboardButton("Support Group", url="https://t.me/DevsZone")],
+                    [InlineKeyboardButton("Help", callback_data="help")
+                     InlineKeyboardButton("About", url="callback_data='about')],
+                    [InlineKeyboardButton("❎ Close ❎", callback_data="close")]
+                ]
+            )
         )
-    )
 
 
 @RenameBot.on_message(filters.private & (filters.video | filters.document | filters.audio))
@@ -181,7 +183,7 @@ async def delete_thumb_handler(bot: Client, event: Message):
         "Custom Thumbnail Deleted Successfully!",
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton("Go To Settings", callback_data="openSettings")],
-            [InlineKeyboardButton("Close", callback_data="closeMeh")]
+            [InlineKeyboardButton("❎ Close ❎", callback_data="close")]
         ])
     )
 
@@ -208,7 +210,7 @@ async def show_thumb_handler(bot: Client, event: Message):
                 await bot.send_message(
                     chat_id=event.chat.id,
                     text=f"Unable to send Thumbnail!\n\n**Error:** `{err}`",
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❎ Close ❎", callback_data="closeMeh")]]),
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❎ Close ❎", callback_data="close")]]),
                     reply_to_message_id=event.message_id
                 )
             except:
@@ -342,7 +344,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                     await bot.send_message(
                         chat_id=cb.message.chat.id,
                         text=f"Unable to send Thumbnail!\n\n**Error:** `{err}`",
-                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❎ Close ❎", callback_data="closeMeh")]])
+                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❎ Close ❎", callback_data="close")]])
                     )
                 except:
                     pass
